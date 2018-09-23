@@ -3,7 +3,7 @@
   var coinjs = window.coinjs = function () { };
 
   /* public vars -  */
-  coinjs.pub = 0x3c;
+  coinjs.pub = 0x37;
   coinjs.priv = 0x80;
   coinjs.multisig = 0x7a;
   coinjs.hdkey = {'prv':0x0488ade4, 'pub':0x0488b21e};
