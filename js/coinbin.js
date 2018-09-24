@@ -36,7 +36,7 @@ $(document).ready(function() {
 
           $("#walletQrCode").html("");
           var qrcode = new QRCode("walletQrCode");
-          qrcode.makeCode("rvn:"+address);
+          qrcode.makeCode("PGN:"+address);
 
           $("#walletKeys .privkey").val(wif);
           $("#walletKeys .pubkey").val(pubkey);
@@ -73,7 +73,7 @@ $(document).ready(function() {
 
     $("#walletQrCode").html("");
     var qrcode = new QRCode("walletQrCode");
-    qrcode.makeCode("rvn:");
+    qrcode.makeCode("PGN:");
 
     $("#walletKeys .privkey").val("");
     $("#walletKeys .pubkey").val("");
@@ -166,7 +166,7 @@ console.log("Value: "+dvalue);
 
         }, signed);
       } else {
-        $("#walletSendConfirmStatus").removeClass("hidden").addClass('alert-danger').html("You have a confirmed balance of "+dvalue+" RVN unable to send "+total+" RVN").fadeOut().fadeIn();
+        $("#walletSendConfirmStatus").removeClass("hidden").addClass('alert-danger').html("You have a confirmed balance of "+dvalue+" PGN unable to send "+total+" PGN").fadeOut().fadeIn();
         thisbtn.attr('disabled',false);
       }
 
@@ -266,9 +266,9 @@ console.log("Value: "+dvalue);
       error: function() {},
       complete: function(data, status) {
                 if (!isNaN(data.responseText))
-                    $("#walletBalance").html(data.responseText+" RVN"); 
+                    $("#walletBalance").html(data.responseText+" PGN"); 
                 else
-                    $("#walletBalance").html("0.00 RVN"); 
+                    $("#walletBalance").html("0.00 PGN"); 
         $("#walletLoader").addClass("hidden");
                 console.log(data);
       }
@@ -782,7 +782,7 @@ console.log("Value: "+dvalue);
     var host = $(this).attr('rel');
 
 
-    listUnspentCryptoidinfo_RVN(redeem);
+    listUnspentCryptoidinfo_PGN(redeem);
 
     if($("#redeemFromStatus").hasClass("hidden")) {
       // An ethical dilemma: Should we automatically set nLockTime?
@@ -916,7 +916,7 @@ console.log("Value: "+dvalue);
 
 
   /* retrieve unspent data from chain.so for U */
-  function listUnspentCryptoidinfo_RVN(redeem) {
+  function listUnspentCryptoidinfo_PGN(redeem) {
 
     $.ajax ({
       type: "GET",
@@ -1373,7 +1373,7 @@ console.log(resp.responseText);
       }
     } else {
       var qrcode = new QRCode("qrcode");
-      qrstr = "rvn:"+$('.address',thisbtn).val();
+      qrstr = "PGN:"+$('.address',thisbtn).val();
     }
 
     if(qrstr){
